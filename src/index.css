@@ -12,8 +12,8 @@ body {
 
 .counter-box{
   border: 1px solid blue;
-  dispaly: flex;
-  flex-drection: row;
+  display: flex;
+  flex-direction: row;
 
 }
 
