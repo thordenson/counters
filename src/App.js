@@ -1,10 +1,14 @@
 import React from 'react';
 import Counter from './Counter.js';
 
+const handleClick = () => {
+  console.log('haaay');
+}
+
 const App = () => {
   return (
     <div className="container">
-      <button>+</button>
+      <button onClick={handleClick}>+</button>
       <div className="counter-box">
 
         <Counter finalValue='100' initialValue='42'/>
