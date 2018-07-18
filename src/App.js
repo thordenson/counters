@@ -1,11 +1,19 @@
 import React from 'react';
 import Counter from './Counter.js';
 
+function deleteCounterById(theID) {
+  console.log(theID);
+}
 
 
 function convertNumToCounter(obj) {
   return (
-    <Counter key={obj.id} initialValue={obj.value} />
+    <Counter 
+    key={obj.id}
+    id={obj.id} 
+    initialValue={obj.value} 
+    doClick={deleteCounterById}
+    />
   );
 } 
 

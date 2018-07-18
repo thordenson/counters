@@ -31,14 +31,22 @@ class Counter extends React.Component {
     });
   }
 
+  _reportMyId = () => {
+    console.log(this.props.id);
+  }
+
   // Rule #2: must have render method
   render() {
 
     // Rule #3: must return some JSX
     // or a call to React.createElement
     return (
-      <div className='counter'>
+      <div className='counter'
+      onClick={this._reportMyId}
+      
+      >
         {this.state.currentValue}
+        {this.props.id}
       </div>
     );
   }

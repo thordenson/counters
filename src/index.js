@@ -7,8 +7,6 @@ import registerServiceWorker from './registerServiceWorker';
 ReactDOM.render((
     <div>
         <App />
-        <App />
-        <App />
     </div>
 
 ), document.getElementById('root'));
