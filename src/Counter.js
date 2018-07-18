@@ -1,62 +1,60 @@
 import React from 'react';
 
-// Rule #1 : extend Reach.Component
+// Rule #1: extend React.Component
 class Counter extends React.Component {
-
-  // Rule #4: accept props in the constructor method
-  // in Python, this is __init__
+  // Rule #4: accept props in the
+  // constructor method
+  // In Python, this is __init__
   constructor(props){
     super(props);
 
-    // State is *my* stuff. It is ALWAYS an object
+    // State is *my* stuff.
+    // It is always an object.
     this.state = {
-
+      currentValue: props.initialValue
     };
 
     setInterval(this._increaseValue, 1000);
   }
 
-// Always write helper functions as arrow functions.
-// Helps keep the bugs away :)
-  _increaseValue=() => {
-    
-    // Calculate the new current value 
+  // Always write helper functions as arrow functions.
+  // Helps keep the bugs away :)
+  _increaseValue = () => {
+    // calculate the new currentValue
     let newCurrentValue = this.state.currentValue + 1;
-    // then, set the new current value in state
+
+    // then, set the new currentValue in state
     // but, I must call this.setState
     // I cannot alter this.state directly
-
     this.setState({
       currentValue: newCurrentValue
     });
   }
 
- // Rule #2: must have render method
- render() {
-// Rule #3: must return some JSX
-// or a call to React.createElement
-return (
-  <div className='counter'>
-    {this.props.initialValue}
-  </div>
-  );
- }
+  // Rule #2: must have render method
+  render() {
+
+    // Rule #3: must return some JSX
+    // or a call to React.createElement
+    return (
+      <div className='counter'>
+        {this.state.currentValue}
+      </div>
+    );
+  }
 }
 
-// const Counter = (props) => {
-//   console.log(props);
-//   return (
-//     <div className='counter'>
-//         {props.initialValue}
-//     </div>
-//   );
-// };
-// shorthand version (object destructuring):
 
-// const Counter = ({finalValue, initialValue}) => {
+
+// Counter is a React Component
+// const Counter = ({
+//   finalValue,
+//   initialValue
+// }) => {
+//   // console.log(props);
 //   return (
 //     <div className='counter'>
-//         {initialValue}
+//       {initialValue}
 //     </div>
 //   );
 // };
