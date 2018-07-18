@@ -11,7 +11,7 @@ function convertNumToCounter(value) {
   );
 } 
 
-//This is not *quite* the React way
+// This is not *quite* the React way
 let counterValues = [42, 3, 18, 29, 56, 11];
 let counterElements = counterValues.map(convertNumToCounter);
 
