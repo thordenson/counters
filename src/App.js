@@ -3,9 +3,9 @@ import Counter from './Counter.js';
 
 
 
-function convertNumToCounter(value) {
+function convertNumToCounter(obj) {
   return (
-    <Counter initialValue={value} />
+    <Counter key={obj.id} initialValue={obj.value} />
   );
 } 
 
@@ -14,30 +14,34 @@ function convertNumToCounter(value) {
 // let counterElements = counterValues.map(convertNumToCounter);
 
 
+
 // this.  <= the link between methods
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      counterValues: [42, 3, 18, 29, 56, 11]
+      counterValues: [{id: 54321, value: 42}]
     };
   }
 
   _handleClick = () => {
-    console.log('haaay');
+    let newObj = {
+      id: (new Date()).getTime(),
+      value: 0
+    };
     this.setState({
-      counterValues: this.state.counterValues.concat(0)
+      counterValues: this.state.counterValues.concat(newObj)
     });
   }
 
   render() {
     return (
-    <div className="container">
-      <button onClick={this._handleClick}>+</button>
-        <div className="counter-box">
-          {this.state.counterValues.map(convertNumToCounter)}
-        </div>
-    </div>
+      <div className="container">
+        <button onClick={this._handleClick}>+</button>
+          <div className="counter-box">
+            {this.state.counterValues.map(convertNumToCounter)}
+          </div>
+      </div>
     );
   }
 }
