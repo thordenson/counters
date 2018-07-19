@@ -31,8 +31,10 @@ class Counter extends React.Component {
     });
   }
 
-  _reportMyId = () => {
-    console.log(this.props.id);
+  _reportMyId = (event) => {
+    // "event" is a "Synthetic Event"
+    console.log(event);
+    this.props.doClick(this.props.id);
   }
 
   // Rule #2: must have render method
@@ -42,8 +44,9 @@ class Counter extends React.Component {
     // or a call to React.createElement
     return (
       <div className='counter'
-      onClick={this._reportMyId}
-      
+      onClick={(event) => {
+        console.log(event);
+        this.props.doClick(this.props.id)}}
       >
         {this.state.currentValue}
         {this.props.id}
