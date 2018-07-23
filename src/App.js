@@ -1,14 +1,16 @@
 import React from 'react';
 import Counter from './Counter.js';
+import Countdown from './Countdown.js';
 
-function deleteCounterById(theID) {
-  console.log(theID);
-}
+function getRandomInt(max=1000)
+
+
 
 
 function convertNumToCounter(obj) {
   return (
-    <Counter 
+    //interchangable from Counter to Countdown
+    <Countdown 
     key={obj.id}
     id={obj.id} 
     initialValue={obj.value} 
@@ -20,7 +22,6 @@ function convertNumToCounter(obj) {
 // This is not *quite* the React way
 // let counterValues = [42, 3, 18, 29, 56, 11];
 // let counterElements = counterValues.map(convertNumToCounter);
-
 
 
 // this.  <= the link between methods
@@ -35,12 +36,16 @@ class App extends React.Component {
   _handleClick = () => {
     let newObj = {
       id: (new Date()).getTime(),
-      value: 0
+      value: getRandomInt()
     };
     this.setState({
       counterValues: this.state.counterValues.concat(newObj)
     });
   }
+
+_deleteCounterById = () => {
+  console.log(theID);
+}
 
   render() {
     return (
@@ -66,6 +71,5 @@ class App extends React.Component {
 //     </div>
 //   );
 // };
-
 
 export default App;
